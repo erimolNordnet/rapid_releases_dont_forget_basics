@@ -1,0 +1,9 @@
+version: '3'
+services:
+  redis-rapid-release-app:
+    image: redis:6.2.7-alpine
+    container_name: "redis-rapid-release-app"
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./src/test/resources/redis:/data
