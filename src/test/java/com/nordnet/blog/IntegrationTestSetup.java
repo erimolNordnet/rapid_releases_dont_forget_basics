@@ -13,16 +13,16 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @Testcontainers
 @SpringBootTest(classes = {Application.class}, webEnvironment = RANDOM_PORT)
-public class IntegrationTestSetup {
+abstract class IntegrationTestSetup {
 
     private static final String REDIS_IMG = "redis:6.2.7-alpine";
-    private static final MountableFile FILE_EUROPE = MountableFile.forClasspathResource("redis/dump.rdb");
-    private static final String DUMP_FILE_REDIS_CONTAINER = "/data/dump.rdb";
+    private static final MountableFile REDIS_DUMP_PATH = MountableFile.forClasspathResource("redis/dump.rdb");
+    private static final String REDIS_CONTAINER_DUMP_PATH = "/data/dump.rdb";
     private static final int REDIS_PORT = 6379;
     @Container
     static GenericContainer redis = new GenericContainer(DockerImageName.parse(REDIS_IMG))
             .withExposedPorts(REDIS_PORT)
-            .withCopyFileToContainer(FILE_EUROPE, DUMP_FILE_REDIS_CONTAINER);
+            .withCopyFileToContainer(REDIS_DUMP_PATH, REDIS_CONTAINER_DUMP_PATH);
 
     @DynamicPropertySource
     static void setRedisProperties(DynamicPropertyRegistry registry) {

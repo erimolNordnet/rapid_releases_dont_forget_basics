@@ -19,7 +19,7 @@ class CompanyDataRegressionTests extends IntegrationTestSetup {
 	@Test
 	@DisplayName("Get Nordnet company data on id")
 	void getNordnetCompanyData() throws Exception {
-		var result = testClient.get().uri("company/nordnet")
+		var result = testClient.get().uri("companies/nordnet")
 				.exchange()
 				.expectStatus().isOk()
 				.expectBody(String.class)

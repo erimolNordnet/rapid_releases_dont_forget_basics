@@ -18,7 +18,7 @@ public class CompanyController {
 
     private final CompanyRepository repository;
 
-    @GetMapping("/company/{id}")
+    @GetMapping("/companies/{id}")
     public Mono<ResponseEntity<Company>> get(@PathVariable CompanyId id) {
         return repository.read(id)
                 .map(ResponseEntity::ok)
