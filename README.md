@@ -10,7 +10,7 @@
 3. java -jar target/rapid-release-app-0.0.1-SNAPSHOT.jar
 
 ### Test when running:
-- http://localhost:8080/company/nordnet
+- http://localhost:8080/companies/nordnet
 
 ## Query data in Redis when started in Docker
 1. docker ps
