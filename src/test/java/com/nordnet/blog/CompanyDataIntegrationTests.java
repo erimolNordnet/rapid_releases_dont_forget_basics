@@ -11,8 +11,8 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 
-@DisplayName("Regression Test company-app")
-class CompanyDataRegressionTests extends IntegrationTestSetup {
+@DisplayName("Test company-app")
+class CompanyDataIntegrationTests extends IntegrationTestSetup {
 	@Autowired
 	private WebTestClient testClient;
 
